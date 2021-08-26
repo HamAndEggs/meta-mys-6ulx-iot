@@ -18,6 +18,10 @@ IMAGE_INSTALL_append += " init-ifupdown"
 
 IMAGE_INSTALL_append += " build-info"
 
+IMAGE_INSTALL_append += " alsa-utils v4l-utils"
+
+IMAGE_INSTALL_append += " u-boot-fw-utils"
+IMAGE_INSTALL_append += " libgpiod"
 
 IMAGE_INSTALL_append += "imx-kobs \
     tslib-calibrate \
@@ -42,6 +46,4 @@ IMAGE_INSTALL_append += "imx-kobs \
     rpm \
     openssh \
     openssl \
-    v4l-utils \
-    hostapd \
-    alsa-utils"
+    hostapd "

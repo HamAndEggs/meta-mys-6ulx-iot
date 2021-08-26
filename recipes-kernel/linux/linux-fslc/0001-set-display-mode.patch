@@ -1,0 +1,33 @@
+diff --git a/arch/arm/boot/dts/imx6ul-14x14-evk.dtsi b/arch/arm/boot/dts/imx6ul-14x14-evk.dtsi
+index aa86341adaaa..130412aa6e17 100644
+--- a/arch/arm/boot/dts/imx6ul-14x14-evk.dtsi
++++ b/arch/arm/boot/dts/imx6ul-14x14-evk.dtsi
+@@ -199,6 +199,28 @@
+ 			remote-endpoint = <&panel_in>;
+ 		};
+ 	};
++	
++       display0: display {
++               bits-per-pixel = <16>;
++               bus-width = <24>;
++
++               timing1: timing1 {
++                       clock-frequency = <3300000>;
++                       hactive = <800>;
++                       vactive = <480>;
++                       hfront-porch = <210>;
++                       hback-porch = <46>;
++                       hsync-len = <1>;
++                       vback-porch = <22>;
++                       vfront-porch = <23>;
++                       vsync-len = <20>;
++
++                       hsync-active = <0>;
++                       vsync-active = <0>;
++                       de-active = <1>;
++                       pixelclk-active = <0>;
++               };
++       };
+ };
+ 
+ &pwm1 {

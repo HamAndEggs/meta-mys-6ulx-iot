@@ -13,7 +13,7 @@ index 7cce911314..1c913abb1c 100644
  	"fdt_high=0xffffffff\0" \
  	"initrd_high=0xffffffff\0" \
 -	"fdt_file=undefined\0" \
-+	"fdt_file=mys-6ulx-iot.dtb\0" \
++	"fdt_file=imx6ull-14x14-evk.dtb\0" \
  	"fdt_addr=0x83000000\0" \
  	"boot_fdt=try\0" \
  	"ip_dyn=yes\0" \
