@@ -9,6 +9,7 @@ LICENSE = "MIT"
 inherit core-image
 
 IMAGE_INSTALL_append += " net-tools"
+IMAGE_INSTALL_append += " util-linux"
 IMAGE_INSTALL_append += " ntpdate"
 IMAGE_INSTALL_append += " htop"
 IMAGE_INSTALL_append += " nano"
@@ -23,9 +24,9 @@ IMAGE_INSTALL_append += " alsa-utils v4l-utils"
 IMAGE_INSTALL_append += " u-boot-fw-utils"
 IMAGE_INSTALL_append += " libgpiod"
 
-IMAGE_INSTALL_append += " mesa mesa-demos libsdl2"
+#IMAGE_INSTALL_append += " mesa mesa-demos libsdl2"
 
-IMAGE_INSTALL_append += " packagegroup-core-buildessential git"
+IMAGE_INSTALL_append += " packagegroup-core-buildessential git cmake"
 
 IMAGE_INSTALL_append += "imx-kobs \
     tslib-calibrate \

@@ -1,5 +1,5 @@
 diff --git a/arch/arm/boot/dts/imx6ul-14x14-evk.dtsi b/arch/arm/boot/dts/imx6ul-14x14-evk.dtsi
-index aa86341adaaa..b6224d29730c 100644
+index aa86341adaaa..8bad7a7efc1c 100644
 --- a/arch/arm/boot/dts/imx6ul-14x14-evk.dtsi
 +++ b/arch/arm/boot/dts/imx6ul-14x14-evk.dtsi
 @@ -95,7 +95,7 @@
@@ -11,7 +11,58 @@ index aa86341adaaa..b6224d29730c 100644
  		backlight = <&backlight_display>;
  
  		port {
-@@ -193,12 +193,12 @@
+@@ -131,6 +131,16 @@
+ 	phy-mode = "rmii";
+ 	phy-handle = <&ethphy0>;
+ 	status = "okay";
++
++    mdio {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		ethphy0: ethernet-phy@0 {
++			compatible = "ethernet-phy-ieee802.3-c22";
++			reg = <0>;
++		};
++    };
+ };
+ 
+ &fec2 {
+@@ -138,28 +148,21 @@
+ 	pinctrl-0 = <&pinctrl_enet2>;
+ 	phy-mode = "rmii";
+ 	phy-handle = <&ethphy1>;
+-	status = "okay";
++	status = "disabled";
+ 
+-	mdio {
++    mdio {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+ 
+-		ethphy0: ethernet-phy@2 {
+-			reg = <2>;
+-			micrel,led-mode = <1>;
+-			clocks = <&clks IMX6UL_CLK_ENET_REF>;
+-			clock-names = "rmii-ref";
+-		};
+-
+ 		ethphy1: ethernet-phy@1 {
++			compatible = "ethernet-phy-ieee802.3-c22";
+ 			reg = <1>;
+-			micrel,led-mode = <1>;
+-			clocks = <&clks IMX6UL_CLK_ENET2_REF>;
+-			clock-names = "rmii-ref";
+ 		};
+ 	};
++
+ };
+ 
++
+ &can1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_flexcan1>;
+@@ -193,12 +196,12 @@
  	pinctrl-0 = <&pinctrl_lcdif_dat
  		     &pinctrl_lcdif_ctrl>;
  	status = "okay";
@@ -25,6 +76,35 @@ index aa86341adaaa..b6224d29730c 100644
  };
  
  &pwm1 {
+@@ -332,6 +335,8 @@
+ 
+ 	pinctrl_enet1: enet1grp {
+ 		fsl,pins = <
++			MX6UL_PAD_GPIO1_IO06__ENET1_MDIO	0x1b0b0
++			MX6UL_PAD_GPIO1_IO07__ENET1_MDC		0x1b0b0
+ 			MX6UL_PAD_ENET1_RX_EN__ENET1_RX_EN	0x1b0b0
+ 			MX6UL_PAD_ENET1_RX_ER__ENET1_RX_ER	0x1b0b0
+ 			MX6UL_PAD_ENET1_RX_DATA0__ENET1_RDATA00	0x1b0b0
+@@ -343,6 +348,19 @@
+ 		>;
+ 	};
+ 
++	pinctrl_enet2: enet2grp {
++		fsl,pins = <
++			MX6UL_PAD_ENET2_RX_EN__ENET2_RX_EN	0x1b0b0
++			MX6UL_PAD_ENET2_RX_ER__ENET2_RX_ER	0x1b0b0
++			MX6UL_PAD_ENET2_RX_DATA0__ENET2_RDATA00	0x1b0b0
++			MX6UL_PAD_ENET2_RX_DATA1__ENET2_RDATA01	0x1b0b0
++			MX6UL_PAD_ENET2_TX_EN__ENET2_TX_EN	0x1b0b0
++			MX6UL_PAD_ENET2_TX_DATA0__ENET2_TDATA00	0x1b0b0
++			MX6UL_PAD_ENET2_TX_DATA1__ENET2_TDATA01	0x1b0b0
++			MX6UL_PAD_ENET2_TX_CLK__ENET2_REF_CLK2	0x4001b031
++		>;
++	};
++
+ 	pinctrl_enet2: enet2grp {
+ 		fsl,pins = <
+ 			MX6UL_PAD_GPIO1_IO07__ENET2_MDC		0x1b0b0
 diff --git a/drivers/gpu/drm/panel/panel-simple.c b/drivers/gpu/drm/panel/panel-simple.c
 index f0ea782df836..d1f28ef724a9 100644
 --- a/drivers/gpu/drm/panel/panel-simple.c
