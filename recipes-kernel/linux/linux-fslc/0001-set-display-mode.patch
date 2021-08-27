@@ -1,33 +1,41 @@
 diff --git a/arch/arm/boot/dts/imx6ul-14x14-evk.dtsi b/arch/arm/boot/dts/imx6ul-14x14-evk.dtsi
-index aa86341adaaa..130412aa6e17 100644
+index aa86341adaaa..b6224d29730c 100644
 --- a/arch/arm/boot/dts/imx6ul-14x14-evk.dtsi
 +++ b/arch/arm/boot/dts/imx6ul-14x14-evk.dtsi
-@@ -199,6 +199,28 @@
+@@ -95,7 +95,7 @@
+ 	};
+ 
+ 	panel {
+-		compatible = "innolux,at043tn24";
++		compatible = "ontat,yx700wv03";		
+ 		backlight = <&backlight_display>;
+ 
+ 		port {
+@@ -193,12 +193,12 @@
+ 	pinctrl-0 = <&pinctrl_lcdif_dat
+ 		     &pinctrl_lcdif_ctrl>;
+ 	status = "okay";
+-
+ 	port {
+ 		display_out: endpoint {
  			remote-endpoint = <&panel_in>;
  		};
  	};
-+	
-+       display0: display {
-+               bits-per-pixel = <16>;
-+               bus-width = <24>;
 +
-+               timing1: timing1 {
-+                       clock-frequency = <3300000>;
-+                       hactive = <800>;
-+                       vactive = <480>;
-+                       hfront-porch = <210>;
-+                       hback-porch = <46>;
-+                       hsync-len = <1>;
-+                       vback-porch = <22>;
-+                       vfront-porch = <23>;
-+                       vsync-len = <20>;
-+
-+                       hsync-active = <0>;
-+                       vsync-active = <0>;
-+                       de-active = <1>;
-+                       pixelclk-active = <0>;
-+               };
-+       };
  };
  
  &pwm1 {
+diff --git a/drivers/gpu/drm/panel/panel-simple.c b/drivers/gpu/drm/panel/panel-simple.c
+index f0ea782df836..d1f28ef724a9 100644
+--- a/drivers/gpu/drm/panel/panel-simple.c
++++ b/drivers/gpu/drm/panel/panel-simple.c
+@@ -2336,7 +2336,8 @@ static const struct panel_desc ontat_yx700wv03 = {
+ 		.width = 154,
+ 		.height = 83,
+ 	},
+-	.bus_format = MEDIA_BUS_FMT_RGB666_1X18,
++	.bus_format = MEDIA_BUS_FMT_RGB888_1X24,
++//	.bus_format = MEDIA_BUS_FMT_RGB666_1X18,
+ };
+ 
+ static const struct drm_display_mode ortustech_com37h3m_mode  = {

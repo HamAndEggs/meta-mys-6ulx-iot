@@ -8,4 +8,4 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 #SRC_URI += "file://mys-6ulx-iot.dts;subdir=git/arch/arm/boot/dts"
 
 
-SRC_URI += "file://0001-set-display-mode.patch"
+#SRC_URI += "file://0001-set-display-mode.patch"
