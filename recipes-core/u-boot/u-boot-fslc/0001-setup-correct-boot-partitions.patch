@@ -1,5 +1,5 @@
 diff --git a/include/configs/mx6ullevk.h b/include/configs/mx6ullevk.h
-index 7cce911314..81335ede89 100644
+index 7cce911314..00cb933ad0 100644
 --- a/include/configs/mx6ullevk.h
 +++ b/include/configs/mx6ullevk.h
 @@ -13,7 +13,7 @@
@@ -11,7 +11,7 @@ index 7cce911314..81335ede89 100644
  
  /* Size of malloc() pool */
  #define CONFIG_SYS_MALLOC_LEN		(16 * SZ_1M)
-@@ -44,16 +44,17 @@
+@@ -44,22 +44,23 @@
  #define CONFIG_SYS_MMC_IMG_LOAD_PART	1
  
  #define CONFIG_EXTRA_ENV_SETTINGS \
@@ -31,6 +31,13 @@ index 7cce911314..81335ede89 100644
  	"mmcdev="__stringify(CONFIG_SYS_MMC_ENV_DEV)"\0" \
  	"mmcpart=" __stringify(CONFIG_SYS_MMC_IMG_LOAD_PART) "\0" \
  	"mmcroot=" CONFIG_MMCROOT " rootwait rw\0" \
+ 	"mmcautodetect=yes\0" \
+ 	"mmcargs=setenv bootargs console=${console},${baudrate} " \
+-		"root=${mmcroot}\0" \
++		"root=${mmcroot} mem=256m\0" \
+ 	"loadbootscript=" \
+ 		"fatload mmc ${mmcdev}:${mmcpart} ${loadaddr} ${script};\0" \
+ 	"bootscript=echo Running bootscript from mmc ...; " \
 @@ -81,16 +82,6 @@
  		"else " \
  			"bootz; " \
