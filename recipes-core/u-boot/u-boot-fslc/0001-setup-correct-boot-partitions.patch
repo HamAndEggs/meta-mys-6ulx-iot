@@ -1,8 +1,17 @@
 diff --git a/include/configs/mx6ullevk.h b/include/configs/mx6ullevk.h
-index 7cce911314..1c913abb1c 100644
+index 7cce911314..81335ede89 100644
 --- a/include/configs/mx6ullevk.h
 +++ b/include/configs/mx6ullevk.h
-@@ -44,12 +44,13 @@
+@@ -13,7 +13,7 @@
+ #include "mx6_common.h"
+ #include <asm/mach-imx/gpio.h>
+ 
+-#define PHYS_SDRAM_SIZE	SZ_512M
++#define PHYS_SDRAM_SIZE	SZ_256M
+ 
+ /* Size of malloc() pool */
+ #define CONFIG_SYS_MALLOC_LEN		(16 * SZ_1M)
+@@ -44,16 +44,17 @@
  #define CONFIG_SYS_MMC_IMG_LOAD_PART	1
  
  #define CONFIG_EXTRA_ENV_SETTINGS \
@@ -13,10 +22,15 @@ index 7cce911314..1c913abb1c 100644
  	"fdt_high=0xffffffff\0" \
  	"initrd_high=0xffffffff\0" \
 -	"fdt_file=undefined\0" \
-+	"fdt_file=imx6ull-14x14-evk.dtb\0" \
++	"fdt_file=mys-6ulx-iot.dtb\0" \
  	"fdt_addr=0x83000000\0" \
  	"boot_fdt=try\0" \
  	"ip_dyn=yes\0" \
+-	"videomode=video=ctfb:x:480,y:272,depth:24,pclk:108695,le:8,ri:4,up:2,lo:4,hs:41,vs:10,sync:0,vmode:0\0" \
++	"videomode=video=ctfb:x:800,y:480,depth:24,pclk:29500,le:824,ri:896,up:483,lo:493,hs:992,vs:500,sync:0,vmode:0\0" \
+ 	"mmcdev="__stringify(CONFIG_SYS_MMC_ENV_DEV)"\0" \
+ 	"mmcpart=" __stringify(CONFIG_SYS_MMC_IMG_LOAD_PART) "\0" \
+ 	"mmcroot=" CONFIG_MMCROOT " rootwait rw\0" \
 @@ -81,16 +82,6 @@
  		"else " \
  			"bootz; " \

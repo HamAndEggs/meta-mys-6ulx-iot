@@ -17,8 +17,6 @@ IMAGE_INSTALL_append += " nano"
 IMAGE_INSTALL_append += " netbase"
 IMAGE_INSTALL_append += " init-ifupdown"
 
-IMAGE_INSTALL_append += " build-info"
-
 IMAGE_INSTALL_append += " alsa-utils v4l-utils"
 
 IMAGE_INSTALL_append += " u-boot-fw-utils"
@@ -26,7 +24,7 @@ IMAGE_INSTALL_append += " libgpiod"
 
 #IMAGE_INSTALL_append += " mesa mesa-demos libsdl2"
 
-IMAGE_INSTALL_append += " packagegroup-core-buildessential git cmake"
+IMAGE_INSTALL_append += " packagegroup-core-buildessential git cmake rapidjson"
 
 IMAGE_INSTALL_append += "imx-kobs \
     tslib-calibrate \
@@ -52,3 +50,7 @@ IMAGE_INSTALL_append += "imx-kobs \
     openssh \
     openssl \
     hostapd "
+
+# Stuff from meta-ham-and-eggs
+IMAGE_INSTALL_append += " appbuild"
+IMAGE_INSTALL_append += " build-info"
