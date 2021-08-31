@@ -24,7 +24,7 @@ IMAGE_INSTALL_append += " libgpiod"
 
 #IMAGE_INSTALL_append += " mesa mesa-demos libsdl2"
 
-IMAGE_INSTALL_append += " packagegroup-core-buildessential git cmake rapidjson"
+IMAGE_INSTALL_append += " packagegroup-core-buildessential git cmake rapidjson freetype"
 
 IMAGE_INSTALL_append += "imx-kobs \
     tslib-calibrate \
@@ -33,7 +33,6 @@ IMAGE_INSTALL_append += "imx-kobs \
     bzip2 \
     gzip \
     canutils \
-    dosfstools \
     mtd-utils \
     mtd-utils-ubifs \
     vlan \
@@ -46,7 +45,6 @@ IMAGE_INSTALL_append += "imx-kobs \
     iputils \
     udev-extraconf \
     udev-rules-imx \
-    rpm \
     openssh \
     openssl \
     hostapd "
