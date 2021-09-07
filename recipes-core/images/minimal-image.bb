@@ -17,7 +17,7 @@ IMAGE_INSTALL_append += " nano"
 IMAGE_INSTALL_append += " netbase"
 IMAGE_INSTALL_append += " init-ifupdown"
 
-IMAGE_INSTALL_append += " alsa-utils v4l-utils"
+IMAGE_INSTALL_append += " alsa-utils v4l-utils gstreamer1.0"
 
 IMAGE_INSTALL_append += " u-boot-fw-utils"
 IMAGE_INSTALL_append += " libgpiod"
