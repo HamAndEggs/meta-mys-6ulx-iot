@@ -11,20 +11,15 @@ inherit core-image
 IMAGE_INSTALL_append += " net-tools"
 IMAGE_INSTALL_append += " util-linux"
 IMAGE_INSTALL_append += " ntpdate"
-IMAGE_INSTALL_append += " htop"
-IMAGE_INSTALL_append += " nano"
 
 IMAGE_INSTALL_append += " netbase"
 IMAGE_INSTALL_append += " init-ifupdown"
 
-IMAGE_INSTALL_append += " alsa-utils v4l-utils gstreamer1.0"
+IMAGE_INSTALL_append += " alsa-utils v4l-utils gstreamer1.0 freetype"
 
 IMAGE_INSTALL_append += " u-boot-fw-utils"
 IMAGE_INSTALL_append += " libgpiod"
 
-#IMAGE_INSTALL_append += " mesa mesa-demos libsdl2"
-
-IMAGE_INSTALL_append += " packagegroup-core-buildessential git cmake rapidjson freetype"
 
 IMAGE_INSTALL_append += "imx-kobs \
     tslib-calibrate \
@@ -50,5 +45,4 @@ IMAGE_INSTALL_append += "imx-kobs \
     hostapd "
 
 # Stuff from meta-ham-and-eggs
-IMAGE_INSTALL_append += " appbuild"
 IMAGE_INSTALL_append += " build-info"
