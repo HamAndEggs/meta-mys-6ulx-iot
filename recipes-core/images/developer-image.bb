@@ -25,8 +25,16 @@ EXTRA_USERS_PARAMS = "  useradd ${DEVELOPER_USER}; \
 
 IMAGE_INSTALL_append += "htop"
 IMAGE_INSTALL_append += "nano"
-IMAGE_INSTALL_append += "samba"
+#IMAGE_INSTALL_append += "samba"
 IMAGE_INSTALL_append += "sudo"
+IMAGE_INSTALL_append += "gdb"
+IMAGE_INSTALL_append += "gdbserver"
+IMAGE_INSTALL_append += "strace"
+IMAGE_INSTALL_append += "evtest"
+IMAGE_INSTALL_append += "i2c-tools"
+IMAGE_INSTALL_append += "ethtool"
+IMAGE_INSTALL_append += "fbset"
+IMAGE_INSTALL_append += "memtester"
 
 IMAGE_INSTALL_append += "packagegroup-core-buildessential"
 IMAGE_INSTALL_append += "git"
@@ -40,7 +48,9 @@ IMAGE_INSTALL_append += "zlib zlib-dev"
 # Stuff from meta-ham-and-eggs
 IMAGE_INSTALL_append += "appbuild"
 IMAGE_INSTALL_append += "add-developer-to-sudo"
-IMAGE_INSTALL_append += "copy-repos"
+IMAGE_INSTALL_append += "copy-tiny2d-repo"
+IMAGE_INSTALL_append += "copy-tinygles-repo"
+IMAGE_INSTALL_append += "lvgl-demo"
 
 IMAGE_FEATURES_append += "tools-sdk"
 IMAGE_FEATURES_append += "tools-debug"
